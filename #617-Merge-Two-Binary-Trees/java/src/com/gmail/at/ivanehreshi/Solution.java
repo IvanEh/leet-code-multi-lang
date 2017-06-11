@@ -16,24 +16,24 @@ public class Solution {
         TreeNode merged = mergeRoot(t1, t2);
 
         if (merged != null) {
-            merge.left = mergeTrees(getLeft(t1), getLeft(t2));
-            merge.right = mergeTrees(getRight(t2), getRight(t2));
+            merged.left = mergeTrees(getLeft(t1), getLeft(t2));
+            merged.right = mergeTrees(getRight(t1), getRight(t2));
         }
-        
+
         return merged;
     }
 
-    private TreeNode getLeft(TreeNode t1) {
-        if (t1 != null) {
-            return t1.left;
+    private TreeNode getLeft(TreeNode t) {
+        if (t != null) {
+            return t.left;
         }
 
         return null;
     }
 
-    private TreeNode getRight(TreeNode t1) {
-        if (t1 != null) {
-            return t1.left;
+    private TreeNode getRight(TreeNode t) {
+        if (t != null) {
+            return t.right;
         }
 
         return null;
@@ -49,7 +49,7 @@ public class Solution {
         if (t2 == null) {
             return new TreeNode(t1.val);
         }
-        return new TreeNode(t1.val, t2.val);
+        return new TreeNode(t1.val + t2.val);
     }
 
 }
